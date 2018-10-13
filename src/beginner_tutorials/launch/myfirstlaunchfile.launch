@@ -1,0 +1,24 @@
+<launch>
+
+  <group ns="robot1">
+    <node pkg="turtlesim" name="cyl" type="turtlesim_node"/>
+  </group>
+
+  <group ns="robot2">
+    <node pkg="turtlesim" name="cqq" type="turtlesim_node"/>
+  </group>
+  
+  <group ns="robot3">
+    <node pkg="turtlesim" name="cbb" type="turtlesim_node"/>
+  </group>
+
+  <node pkg="turtlesim" name="mimic1" type="mimic">
+    <remap from="input" to="robot1/turtle1"/>
+    <remap from="output" to="robot2/turtle1"/>
+  </node>
+  <node pkg="turtlesim" name="mimic2" type="mimic">
+    <remap from="input" to="robot1/turtle1"/>
+    <remap from="output" to="robot3/turtle1"/>
+  </node>
+
+</launch>
